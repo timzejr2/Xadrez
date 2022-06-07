@@ -29,26 +29,27 @@ namespace xadrez_console
                         Console.Clear();
                         Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
 
+                        Console.WriteLine();
                         Console.Write("Destino: ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
                         partida.validarPosicaoDeDestino(origem, destino);
 
                         partida.realizaJogada(origem, destino);
                     }
-                    catch(TabuleiroException e)
+                    catch (TabuleiroException e)
                     {
                         Console.WriteLine(e.Message);
                         Console.ReadLine();
                     }
                 }
-
-                Tela.imprimirTabuleiro(partida.tab);
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
-            catch(TabuleiroException e)
+            catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
             }
-            
+
 
             Console.WriteLine();
         }
